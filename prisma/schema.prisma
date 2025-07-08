@@ -6,13 +6,12 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 model User{
@@ -45,7 +44,4 @@ model ThreadContent{
   threadId String @unique
   thread Thread? @relation("ThreadToContent",fields: [threadId],references: [id])
   content String
-
 }
-
-
