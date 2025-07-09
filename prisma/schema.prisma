@@ -26,7 +26,8 @@ model Thread{
   userId String
   user User @relation(fields: [userId], references: [id])
   comments Comment[]
-  threadContent ThreadContent? @relation("ThreadToContent")
+  title String
+  body String
 }
 
 model Comment{
@@ -37,11 +38,4 @@ model Comment{
   downvotes Int @default(0)
   threadId String
   thread Thread @relation(fields: [threadId],references: [id])
-}
-
-model ThreadContent{
-  id String @id @default(uuid())
-  threadId String @unique
-  thread Thread? @relation("ThreadToContent",fields: [threadId],references: [id])
-  content String
 }
