@@ -1,13 +1,24 @@
-import React from 'react';
-import { MessageCircle, Users, Lock, Share2, ArrowRight, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import React from "react";
+import {
+  MessageCircle,
+  Users,
+  Lock,
+  Share2,
+  ArrowRight,
+  Zap,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { RedirectHeroButton } from "./redirectHeroButtons";
 
 export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="relative z-10 text-center max-w-5xl mx-auto">
-        <Badge variant="secondary" className="mb-8 bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm text-gray-300 hover:bg-gray-800/60">
+        <Badge
+          variant="secondary"
+          className="mb-8 bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm text-gray-300 hover:bg-gray-800/60"
+        >
           <Zap className="w-4 h-4 text-yellow-400 mr-2" />
           Anonymous commenting reimagined
         </Badge>
@@ -22,53 +33,64 @@ export default function Hero() {
 
         {/* sub-herading */}
         <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Create posts, share links, and let the world comment anonymously. 
-          No barriers, no sign-ups for commenters—just pure, unfiltered feedback.
+          Create posts, share links, and let the world comment anonymously. No
+          barriers, no sign-ups for commenters-just pure, unfiltered feedback.
         </p>
 
-        {/* Buttons to redirect */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button size="lg" className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300">
-            Get Started Free
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-          
-          <Button variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:border-gray-500 hover:text-white hover:bg-gray-800/50">
-            See How It Works
-          </Button>
-        </div>
-
+        <RedirectHeroButton/>
+        
         {/* features*/}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50 ">
             <div className="w-12 h-12 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Create & Share</h3>
-            <p className="text-gray-400">Sign up once, create posts, and share links instantly. Your content, your control.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Create & Share
+            </h3>
+            <p className="text-gray-400">
+              Sign up once, create posts, and share links instantly. Your
+              content, your control.
+            </p>
           </div>
 
           <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50">
             <div className="w-12 h-12 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <Users className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Anonymous Comments</h3>
-            <p className="text-gray-400">No sign-ups for commenters. Pure, unfiltered feedback from your audience.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Anonymous Comments
+            </h3>
+            <p className="text-gray-400">
+              No sign-ups for commenters. Pure, unfiltered feedback from your
+              audience.
+            </p>
           </div>
 
           <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50">
             <div className="w-12 h-12 mx-auto bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <Share2 className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Simple Sharing</h3>
-            <p className="text-gray-400">One link, endless possibilities. Share anywhere and watch the conversations flow.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Simple Sharing
+            </h3>
+            <p className="text-gray-400">
+              One link, endless possibilities. Share anywhere and watch the
+              conversations flow.
+            </p>
           </div>
         </div>
 
         {/* Some colorful circles */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div
+          className="absolute bottom-20 right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
     </div>
   );
