@@ -10,7 +10,7 @@ export default function () {
       </div>
       <div id="how-it-works" className="my-16 px-8">
         <div className="text-center text-xl font-bold">How it Works?</div>
-        <div className="text-justify max-w-2xl mx-auto mt-4 text-gray-200 bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm px-12 py-8 rounded-xl">
+        <div className="text-justify max-w-2xl mx-auto mt-4 text-gray-400 bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm px-12 py-8 rounded-xl">
               <p>
                 ShadowPost revolutionizes feedback collection by removing barriers between creators and their audience. 
                 You sign up once, create posts about anything you want feedback on, and share a simple link.
