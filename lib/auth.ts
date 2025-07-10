@@ -8,6 +8,7 @@ export const authOptions={
         Credentials({
             name:"Credentials",
             credentials:{
+                name:{label:"name", type:"text",placeholder:"dark"},
                 email:{label:"email",type:"text",placeholder:"dark@gmail.com"},
                 password:{label:"password", type:"password",placeholder:"********"}
             },
