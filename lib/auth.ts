@@ -27,6 +27,7 @@ export const authOptions={
                     if(isValid){
                         return {
                             id:user.id,
+                            name:user.name,
                             email:user.email
                         }
                     }
@@ -36,9 +37,14 @@ export const authOptions={
                 }
                 
                 try{
+                    if(!data.name){
+                        console.log("name not provided")
+                        return null;
+                    }
                     const hashedPassword= await bcrypt.hash(data.password,10);
                     const newUser= await prisma.user.create({
                         data:{
+                            name:data.name,
                             email:data.email,
                             password:hashedPassword
                         }
@@ -46,6 +52,7 @@ export const authOptions={
 
                     return {
                         id:newUser.id,
+                        name:newUser.name,
                         email:newUser.email
                     }
                 } catch(e){
@@ -56,7 +63,7 @@ export const authOptions={
             }
         })
     ],
-    secret:process.env.NEXTAUTH_SECRET || "secret",
+    secret:process.env.NEXTAUTH_SECRET,
     callbacks:{
         async jwt({token,user}){
             if(user){

@@ -1,4 +1,6 @@
 import Appbar from "@/components/ui/appbar";
+import '@milkdown/crepe/theme/common/style.css';
+import '@milkdown/crepe/theme/frame.css';
 
 export default function DashboardLayout({
   children,

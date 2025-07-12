@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@milkdown/crepe": "^7.15.1",
+    "@milkdown/kit": "^7.15.1",
+    "@milkdown/react": "^7.15.1",
+    "@milkdown/theme-nord": "^7.15.1",
     "@prisma/client": "^6.11.1",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-dropdown-menu": "^2.1.15",

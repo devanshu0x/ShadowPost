@@ -60,6 +60,7 @@ export default function Appbar() {
                 <Button
                   variant="ghost"
                   className="text-gray-300 hover:text-white hover:bg-gray-800/50"
+                  onClick={()=>router.push("/newpost")}
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add Post
