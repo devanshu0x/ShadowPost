@@ -1,0 +1,71 @@
+.milkdown {
+  /* Background Colors */
+  --crepe-color-background: #111111; /* Main background color */
+  --crepe-color-surface: #1c1c1c; /* Surface color for cards/panels */
+  --crepe-color-surface-low: #2a2a2a; /* Lower surface color for depth (darker neutral) */
+
+  /* Text Colors */
+  --crepe-color-on-background: #e6e6e6; /* Text color on background (lighter for contrast) */
+  --crepe-color-on-surface: #d4d4d4; /* Text color on surface */
+  --crepe-color-on-surface-variant: #a3a3a3; /* Secondary text color (neutral-400) */
+
+  /* Accent Colors */
+  --crepe-color-primary: #a1a1aa; /* Primary brand color (neutral-400) */
+  --crepe-color-secondary: #52525b; /* Secondary accent color (neutral-600) */
+  --crepe-color-on-secondary: #f4f4f5; /* Text color on secondary (neutral-100) */
+
+  /* UI Colors */
+  --crepe-color-outline: #3f3f46; /* Border/outline color (neutral-700) */
+  --crepe-color-inverse: #f5f5f5; /* Inverse color for contrast */
+  --crepe-color-on-inverse: #18181b; /* Text color on inverse */
+  --crepe-color-inline-code: #f87171; /* Inline code color (light red for clarity) */
+  --crepe-color-error: #ef4444; /* Error state color (strong neutral-compatible red) */
+
+  /* Interactive Colors */
+  --crepe-color-hover: #262626; /* Hover state color */
+  --crepe-color-selected: #3f3f3f; /* Selected state color */
+  --crepe-color-inline-area: #525252; /* Inline editing area color */
+}
+
+.milkdown {
+  /* Font Families */
+  --crepe-font-title: Georgia, Cambria, "Times New Roman", Times, serif;
+  --crepe-font-default: "Open Sans", Arial, Helvetica, sans-serif;
+  --crepe-font-code:
+    Fira Code, Menlo, Monaco, "Courier New", Courier, monospace;
+}
+
+.milkdown {
+  /* Small Shadow */
+  --crepe-shadow-1:
+    0px 1px 3px 1px rgba(255, 255, 255, 0.04), 0px 1px 2px 0px rgba(255, 255, 255, 0.06);
+  /* Large Shadow */
+  --crepe-shadow-2:
+    0px 2px 6px 2px rgba(255, 255, 255, 0.03), 0px 1px 2px 0px rgba(255, 255, 255, 0.06);
+}
+
+.milkdown {
+  /* styling */
+  border-radius: 12px;
+  border: #27272a 1px solid;
+}
+
+
+/* .milkdown .editor {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+} */
+
+.milkdown .editor{
+    padding: 1rem;
+}
+
+.milkdown .editor p {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.milkdown img {
+  max-height: 800px;
+}
