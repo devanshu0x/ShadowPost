@@ -5,13 +5,15 @@ import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
 import { useEffect, useState } from "react";
 
 interface Props{
-  setValue:(value:string)=>void
+  setValue:(value:string)=>void,
+  value:string
 }
 
-const CrepeEditor= ({setValue}:Props) => {
+const CrepeEditor= ({setValue,value}:Props) => {
   const [markdown, setMarkdown]=useState("");
   const { get } = useEditor((root) => {
     const crepe= new Crepe({ root,
+      defaultValue:value,
       featureConfigs:{
         "image-block":{
           onUpload: (file)=>{
@@ -41,10 +43,10 @@ const CrepeEditor= ({setValue}:Props) => {
   return <Milkdown />;
 };
 
-export const MilkdownEditorWrapper= ({setValue}:Props) => {
+export const MarkdownEditor= ({setValue,value}:Props) => {
   return (
     <MilkdownProvider>
-      <CrepeEditor setValue={setValue}  />
+      <CrepeEditor setValue={setValue} value={value}  />
     </MilkdownProvider>
   );
 };

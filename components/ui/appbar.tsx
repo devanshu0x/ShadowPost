@@ -66,6 +66,7 @@ export default function Appbar() {
                   Add Post
                 </Button>
                 <Button
+                  onClick={()=>router.push("/myposts")}
                   variant="ghost"
                   className="text-gray-300 hover:text-white hover:bg-gray-800/50"
                 >
@@ -144,6 +145,9 @@ export default function Appbar() {
                   <Button
                     variant="ghost"
                     className="w-full justify-start text-gray-300 hover:text-white hover:bg-gray-800/50"
+                    onClick={()=>{router.push("/newpost");
+                      setIsMobileMenuOpen(s=>!s);
+                    }}
                   >
                     <Plus className="w-4 h-4 mr-2" />
                     Add Post
@@ -151,6 +155,10 @@ export default function Appbar() {
                   <Button
                     variant="ghost"
                     className="w-full justify-start text-gray-300 hover:text-white hover:bg-gray-800/50"
+                    onClick={()=>{
+                      router.push("/myposts");
+                      setIsMobileMenuOpen(s=>!s);
+                    }}
                   >
                     <FileText className="w-4 h-4 mr-2" />
                     My Posts

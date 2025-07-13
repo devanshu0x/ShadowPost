@@ -24,7 +24,7 @@ export default async function () {
         Public Posts
       </div>
       <div className="max-w-3xl mx-auto mt-8">
-        {publicPosts.map((post)=><Postcard key={post.id} publishDate={post.publishDate} threadId={post.id} title={post.title} />)}
+        {publicPosts.map((post)=><Postcard key={post.id} publishDate={post.publishDate} threadId={post.id} title={post.title} fromDashboard={true} />)}
       </div>
     </div>
   );

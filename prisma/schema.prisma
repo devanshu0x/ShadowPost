@@ -28,6 +28,7 @@ model Thread{
   user User @relation(fields: [userId], references: [id])
   comments Comment[]
   isPublic Boolean
+  editCount Int @default(0)
   title String
   body String
   publishDate DateTime

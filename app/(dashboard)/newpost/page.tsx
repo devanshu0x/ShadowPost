@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { MilkdownEditorWrapper } from "@/components/ui/crepeEditor";
+import { MarkdownEditor } from "@/components/ui/crepeEditor";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -37,7 +37,8 @@ export default function () {
           placeholder="Enter title of thread here"
         />
         <Label className="sm:text-lg mt-6 mb-2">Body</Label>
-        <MilkdownEditorWrapper
+        <MarkdownEditor
+          value=""
           setValue={(value: string) => (getMarkDown.current = value)}
         />
         <div className="mt-6 flex space-x-4">
