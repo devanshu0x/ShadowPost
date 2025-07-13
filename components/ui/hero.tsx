@@ -2,12 +2,9 @@ import React from "react";
 import {
   MessageCircle,
   Users,
-  Lock,
   Share2,
-  ArrowRight,
   Zap,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { RedirectHeroButton } from "./redirectHeroButtons";
 
@@ -19,7 +16,7 @@ export default function Hero() {
           variant="secondary"
           className="mb-8 bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm text-gray-300 hover:bg-gray-800/60"
         >
-          <Zap className="w-4 h-4 text-yellow-400 mr-2" />
+          <Zap className="w-4 h-4 text-yellow-400 mr-2 animate-pulse drop-shadow-[0_0_6px_rgba(250,204,21,0.8)]" />
           Anonymous commenting reimagined
         </Badge>
 

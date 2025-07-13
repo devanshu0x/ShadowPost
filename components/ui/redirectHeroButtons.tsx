@@ -13,7 +13,7 @@ export function RedirectHeroButton(){
             router.push("/dashboard")
           }}
             size="lg"
-            className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300"
+            className="group text-foreground bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300"
           >
             Get Started
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />

@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "../auth"
 import { prisma } from "../prisma";
 
-export async function createThread(title:string, body:string){
+export async function createThread(title:string, body:string, isPublic:boolean){
     const session =await getServerSession(authOptions);
     const userId= session?.user?.id as string;
     if(!userId){
@@ -21,7 +21,8 @@ export async function createThread(title:string, body:string){
                 title:title,
                 body:body,
                 userId:userId,
-                isPublic:true
+                isPublic:isPublic,
+                publishDate: new Date()
             }
         });
 

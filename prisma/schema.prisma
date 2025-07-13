@@ -30,6 +30,7 @@ model Thread{
   isPublic Boolean
   title String
   body String
+  publishDate DateTime
 }
 
 model Comment{
