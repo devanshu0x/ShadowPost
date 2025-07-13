@@ -6,7 +6,7 @@ import { prisma } from "../prisma";
 
 export async function createThread(title:string, body:string){
     const session =await getServerSession(authOptions);
-    const userId= session?.user?.id;
+    const userId= session?.user?.id as string;
     if(!userId){
         return {
             success:false,
@@ -20,7 +20,8 @@ export async function createThread(title:string, body:string){
             data:{
                 title:title,
                 body:body,
-                userId:userId
+                userId:userId,
+                isPublic:true
             }
         });
 

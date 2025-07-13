@@ -2,10 +2,16 @@
 import { uploadImage } from "@/lib/actions/uploadImage";
 import { Crepe } from "@milkdown/crepe";
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
+import { useEffect, useState } from "react";
 
-const CrepeEditor= () => {
+interface Props{
+  setValue:(value:string)=>void
+}
+
+const CrepeEditor= ({setValue}:Props) => {
+  const [markdown, setMarkdown]=useState("");
   const { get } = useEditor((root) => {
-    return new Crepe({ root,
+    const crepe= new Crepe({ root,
       featureConfigs:{
         "image-block":{
           onUpload: (file)=>{
@@ -16,15 +22,29 @@ const CrepeEditor= () => {
         },
       }
      } );
+     crepe.on((listener)=>{
+      listener.markdownUpdated((_,md)=>{
+        setMarkdown(md);
+      })
+     })
+
+     return crepe;
   });
+
+  useEffect(()=>{
+    const editor= get();
+    if(editor){
+      setValue(markdown);
+    }
+  },[get,markdown,setValue]);
 
   return <Milkdown />;
 };
 
-export const MilkdownEditorWrapper= ({setValue}) => {
+export const MilkdownEditorWrapper= ({setValue}:Props) => {
   return (
     <MilkdownProvider>
-      <CrepeEditor  />
+      <CrepeEditor setValue={setValue}  />
     </MilkdownProvider>
   );
 };
