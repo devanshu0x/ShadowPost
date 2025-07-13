@@ -1,22 +1,62 @@
 "use client";
-import {format} from "date-fns"
-import { useRouter } from "next/navigation";
 
-interface postcardProps{
-    title: string;
-    threadId: string;
-    publishDate:Date;
-    fromDashboard:boolean;
+import { format } from "date-fns";
+import { useRouter } from "next/navigation";
+import { Calendar, Edit, Eye } from "lucide-react";
+
+interface PostcardProps {
+  title: string;
+  threadId: string;
+  publishDate: Date;
+  fromDashboard: boolean;
 }
 
-export function Postcard({title,threadId,publishDate,fromDashboard}:postcardProps) {
-  const date = format(publishDate,"E, do MMM yyyy");
-    const rounter=useRouter();
-    const onClick= fromDashboard? ()=>rounter.push(`/thread/${threadId}`): ()=>rounter.push(`/edit/${threadId}`);
+export function Postcard({ title, threadId, publishDate, fromDashboard }: PostcardProps) {
+  const formattedDate = format(publishDate, "E, do MMM yyyy");
+  const router = useRouter();
+  
+  const handleClick = () => {
+    const path = fromDashboard ? `/thread/${threadId}` : `/edit/${threadId}`;
+    router.push(path);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div onClick={onClick} className="rounded-sm border bg-muted/40 px-6 py-4 mb-4 shadow-sm transition-colors hover:bg-muted duration-300">
-      <h2 className="text-base  font-medium text-foreground text-center">{title}</h2>
-      <p className="mt-2 text-xs sm:text-sm font-light text-muted-foreground">Published on <span className="text-foreground" >{date}</span></p>
+    <div 
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      className="group relative rounded-lg border bg-card/50 p-6 mb-4 shadow-sm transition-all duration-300 hover:shadow-md hover:bg-card/80 hover:border-border/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer"
+    >
+      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        {fromDashboard ? (
+          <Eye className="h-4 w-4 text-muted-foreground" />
+        ) : (
+          <Edit className="h-4 w-4 text-muted-foreground" />
+        )}
+      </div>
+
+   
+      <h2 className="text-lg font-semibold text-foreground mb-3 pr-8 line-clamp-2 leading-tight">
+        {title}
+      </h2>
+
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <Calendar className="h-4 w-4" />
+        <span>
+          Published on{" "}
+          <span className="text-foreground font-medium">
+            {formattedDate}
+          </span>
+        </span>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
   );
 }

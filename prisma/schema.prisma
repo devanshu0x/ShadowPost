@@ -32,14 +32,16 @@ model Thread{
   title String
   body String
   publishDate DateTime
+  upvotes Int @default(0)
+  downvotes Int @default(0)
 }
 
 model Comment{
   id String @id @default(uuid())
   content String
-  imageUrl String?
   upvotes Int @default(0)
   downvotes Int @default(0)
+  publishDate DateTime
   threadId String
   thread Thread @relation(fields: [threadId],references: [id])
 }
