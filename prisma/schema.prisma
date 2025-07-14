@@ -38,6 +38,7 @@ model Thread{
 
 model Comment{
   id String @id @default(uuid())
+  username String
   content String
   upvotes Int @default(0)
   downvotes Int @default(0)

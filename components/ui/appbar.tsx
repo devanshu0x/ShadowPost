@@ -9,9 +9,10 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Plus, FileText, LogOut, User, Menu, X } from "lucide-react";
+import { Plus, FileText, LogOut, User, Menu, X, WandSparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
+import { AnonymousDrawer } from "./anonymousDrawer";
 
 export default function Appbar() {
   const session= useSession();
@@ -39,6 +40,7 @@ export default function Appbar() {
           <div className="hidden md:flex items-center space-x-4">
             {(session.status!=="authenticated") ? (
               <>
+              <AnonymousDrawer/>
                 <Button
                   onClick={() => router.push("/#how-it-works")}
                   variant="ghost"
@@ -57,6 +59,7 @@ export default function Appbar() {
               </>
             ) : (
               <>
+                <AnonymousDrawer/>
                 <Button
                   variant="ghost"
                   className="text-gray-300 hover:text-white hover:bg-gray-800/50"
@@ -104,7 +107,8 @@ export default function Appbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-1 ">
+            <AnonymousDrawer/>
             <Button
               variant="ghost"
               size="sm"
