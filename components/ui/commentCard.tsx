@@ -1,5 +1,4 @@
 import { format } from "date-fns";
-import { Card } from "./card";
 import { UserBadge } from "./userBadge";
 import { MarkdownPreview } from "./crepeEditorPreview";
 
@@ -11,11 +10,11 @@ interface Props{
 
 export function CommentCard({content,publishDate, username}:Props){
     const date = format(publishDate,"E, do MMM yyyy");
-    return(<Card className="mb-2">
+    return(<div className="mb-2">
         <div className="flex justify-between items-center">
             <UserBadge name={username}/>
-            <span>{date}</span>
+            <span className="text-sm text-foreground/80">{date}</span>
         </div>
         <MarkdownPreview value={content}/>
-    </Card>)
+    </div>)
 }
