@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Plus, FileText, LogOut, User, Menu, X, WandSparkles } from "lucide-react";
+import { Plus, FileText, LogOut, User, Menu, X} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { AnonymousDrawer } from "./anonymousDrawer";

@@ -1,5 +1,4 @@
 "use client";
-import Cookie from "js-cookie"
 
 export function UserBadge({name}:{name:string}){
     return(

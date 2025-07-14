@@ -13,7 +13,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function () {
+export default function Page() {
   const router=useRouter();
   const [name,setName]=useState<string>("");
   const [email,setEmail]=useState<string>("");

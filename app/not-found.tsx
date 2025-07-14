@@ -1,10 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function() {
+export default function NotFound() {
     const router=useRouter();
   return (
     <div className="flex flex-col justify-center items-center my-12">

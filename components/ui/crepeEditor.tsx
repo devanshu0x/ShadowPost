@@ -1,7 +1,6 @@
 "use client";
 import { uploadImage } from "@/lib/actions/uploadImage";
 import { Crepe } from "@milkdown/crepe";
-import { placeholder, placeholderConfig } from "@milkdown/crepe/feature/placeholder";
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
 import { useEffect, useState } from "react";
 

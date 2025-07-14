@@ -1,7 +1,7 @@
 import { Background } from "@/components/ui/background";
 import Hero from "@/components/ui/hero";
 
-export default function () {
+export default function Page() {
   return (
     <div>
       <Background />
