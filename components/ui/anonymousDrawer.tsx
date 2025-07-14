@@ -10,7 +10,7 @@ export function AnonymousDrawer(){
     console.log(name);
     return(<Drawer>
         <DrawerTrigger>
-            <WandSparkles/>
+            <WandSparkles className="h-4 sm:h-5"/>
         </DrawerTrigger>
         <DrawerContent>
             <div className="mx-auto w-full max-w-sm">

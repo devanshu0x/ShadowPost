@@ -19,7 +19,7 @@ export function AddComment({threadId}:Props){
     return(<div className="p-2 bg-muted/40 rounded-sm">
         <h4 className="text-center font-semibold mb-2">New Comment</h4>
         <div>
-        <UserBadge/>
+        <UserBadge name={name}/>
         <MarkdownEditor setValue={(value)=>comment.current=value} value="" />
             <Button onClick={async()=>{
                 await createComment(threadId,comment.current,name);

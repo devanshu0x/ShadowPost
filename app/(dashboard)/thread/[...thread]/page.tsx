@@ -1,4 +1,5 @@
 import { AddComment } from "@/components/ui/addComment";
+import { CommentCard } from "@/components/ui/commentCard";
 import { MarkdownPreview } from "@/components/ui/crepeEditorPreview";
 import { prisma } from "@/lib/prisma";
 import { format } from "date-fns";
@@ -12,9 +13,16 @@ async function getThread(threadId:string) {
         select:{
             id:true,
             body:true,
-            comments:true,
+            comments:{
+                select:{
+                    content:true,
+                    id:true,
+                    publishDate:true,
+                    username:true
+                }
+            },
             publishDate:true,
-            title:true
+            title:true,
         }
     })
     return data;
@@ -40,6 +48,9 @@ export default async function({params}:{params:Promise<{thread: string[]}>}){
         <div>
             <div className="sm:text-lg mb-4">Comments</div>
             <AddComment threadId={threadId}/>
+            <div className="mt-8">
+                {threadData.comments.map((comment)=><CommentCard content={comment.content} key={comment.id} publishDate={comment.publishDate} username={comment.username}/>)}
+            </div>
         </div>
     </div>
 }
