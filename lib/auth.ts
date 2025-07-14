@@ -65,7 +65,7 @@ export const authOptions={
     ],
     secret:process.env.NEXTAUTH_SECRET,
     callbacks:{
-        async jwt({token,user}){
+        async jwt({token,user}:any){
             if(user){
                 token.id=user.id,
                 token.email=user.email
@@ -73,7 +73,7 @@ export const authOptions={
             return token;
         },
 
-        async session({token,session}){
+        async session({token,session}:any){
             if(session.user){
                 session.user.id=token.id;
                 session.user.email=token.email;
