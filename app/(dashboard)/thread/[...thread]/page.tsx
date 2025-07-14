@@ -1,3 +1,4 @@
+import { AddComment } from "@/components/ui/addComment";
 import { MarkdownPreview } from "@/components/ui/crepeEditorPreview";
 import { prisma } from "@/lib/prisma";
 import { format } from "date-fns";
@@ -19,8 +20,8 @@ async function getThread(threadId:string) {
     return data;
 }
 
-export default async function({params}:{params:{thread: string[]}}){
-    const segment= params.thread;
+export default async function({params}:{params:Promise<{thread: string[]}>}){
+    const {thread:segment}= await params;
     if(segment.length!==1){
         notFound();
     }
@@ -35,6 +36,10 @@ export default async function({params}:{params:{thread: string[]}}){
         <div className="mt-8 text-sm text-foreground/80 text-right">{date}</div>
         <div className="my-12 ">
             <MarkdownPreview value={threadData.body}/>
+        </div>
+        <div>
+            <div className="sm:text-lg mb-4">Comments</div>
+            <AddComment threadId={threadId}/>
         </div>
     </div>
 }

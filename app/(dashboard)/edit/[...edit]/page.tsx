@@ -17,8 +17,8 @@ async function getThread(threadId:string) {
     return data;
 }
 
-export default async function({params}:{params:{edit: string[]}}){
-    const segment=params.edit;
+export default async function({params}:{params:Promise<{edit: string[]}>}){
+    const {edit:segment}= await params;
     if(segment.length!=1){
         notFound();
     }

@@ -36,7 +36,7 @@ export default function () {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter title of thread here"
         />
-        <Label className="sm:text-lg mt-6 mb-2">Body</Label>
+        <Label className="sm:text-lg mt-6 mb-2">Body(Supports Markdown)</Label>
         <MarkdownEditor
           value=""
           setValue={(value: string) => (getMarkDown.current = value)}

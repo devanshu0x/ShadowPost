@@ -1,6 +1,7 @@
 "use client";
 import { uploadImage } from "@/lib/actions/uploadImage";
 import { Crepe } from "@milkdown/crepe";
+import { placeholder, placeholderConfig } from "@milkdown/crepe/feature/placeholder";
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
 import { useEffect, useState } from "react";
 
@@ -20,8 +21,12 @@ const CrepeEditor= ({setValue,value}:Props) => {
             const formData=new FormData();
             formData.append(`file`,file);
             return uploadImage(formData);
-          }
+          },
         },
+        "placeholder":{
+          text:"Start writing here...",
+          mode:"block"
+        }
       }
      } );
      crepe.on((listener)=>{

@@ -21,8 +21,8 @@ export function AnonymousDrawer(){
             <div className="p-4  flex flex-col justify-center items-center">
                 <img  src={`https://api.dicebear.com/9.x/adventurer-neutral/svg?radius=50&seed=${name}`}
                 className="w-32 sm:w-48 md:w-64"/>
-                <div>{name}</div>
-                <Button onClick={async ()=>await anonymous() }>Anonymiz me!</Button>
+                <div className="sm:text-lg font-semibold mt-2 mb-4">{name}</div>
+                <Button onClick={async ()=>await anonymous() }>Anonymize me!</Button>
             </div>
             </div>
         </DrawerContent>
