@@ -21,7 +21,7 @@ async function getMyPosts(userId:string){
 
 export default async function () {
     const session= await getServerSession(authOptions);
-    if(!session.user.id){
+    if(!session?.user?.id){
         notFound();
     }
   const myPosts=await getMyPosts(session.user.id);

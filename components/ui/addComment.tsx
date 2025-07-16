@@ -25,6 +25,7 @@ export function AddComment({threadId}:Props){
                 await createComment(threadId,comment.current,name);
                 comment.current="";
                 router.refresh();
+                
             }} className="mt-3">Add Comment</Button>
         </div>
     </div>)

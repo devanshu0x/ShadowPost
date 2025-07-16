@@ -1,8 +1,6 @@
 "use server";
 
 import {v2 as cloudinary} from "cloudinary"
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth";
 
 cloudinary.config({
     cloud_name:process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -17,10 +15,6 @@ interface CloudinaryUploadResult{
 
 export async function uploadImage(formData:FormData){
     const fallbackUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDdwmJg_lL2KTkC5bkdmNlsbWV43DWfQM6Iw&s";
-    const session=await getServerSession(authOptions);
-    if(!session?.user?.id){
-        return fallbackUrl;
-    }
     try{
         const file= formData.get("file") as File | null;
         if(!file){
