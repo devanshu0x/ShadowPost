@@ -40,7 +40,7 @@ export default function Page() {
               <Label className="text-sm mb-1">Password</Label>
               <Input placeholder="123456" value={password} onChange={(e)=>setPassword(e.target.value)} />
             </div>
-            <div className="flex gap-2 py-2">
+            <div className="flex gap-2 pt-2">
               <Button onClick={async()=>{const res= await signIn("credentials",{
                 email,
                 password,
@@ -54,7 +54,9 @@ export default function Page() {
               }
             }
               }>Signin</Button>
-              <Button variant="outline" onClick={()=>router.push("/signup")}>Signup</Button>
+            </div>
+            <div className="flex text-sm justify-center items-center gap-1 text-muted-foreground">
+              Don't have an account?<span className="cursor-pointer text-foreground" onClick={()=>router.push("/signup")}>Signup</span>
             </div>
           </div>
         </CardContent>

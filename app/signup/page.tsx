@@ -61,7 +61,9 @@ export default function Page() {
               }
 
               }}>Signup</Button>
-              <Button variant="outline" onClick={()=>router.push("/signin")} >Signin</Button>
+            </div>
+            <div className="flex text-sm justify-center items-center gap-1 text-muted-foreground">
+              Already have an account?<span className="cursor-pointer text-foreground" onClick={()=>router.push("/signin")}>Signin</span>
             </div>
           </div>
         </CardContent>
