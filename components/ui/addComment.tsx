@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MarkdownEditor } from "./crepeEditor";
 import { UserBadge } from "./userBadge";
 import { Button } from "./button";
@@ -14,18 +14,22 @@ interface Props{
 
 export function AddComment({threadId}:Props){
     const router=useRouter();
+    const [clear,setClear]=useState<boolean>(false);
     const name= Cookie.get("anonymous_name") || "Anon";
     const comment= useRef<string>("");
+    useEffect(()=>{
+        if(clear){
+            setClear(false);
+        }
+    },[clear])
     return(<div className="p-2 bg-muted/40 rounded-sm">
         <h4 className="text-center font-semibold mb-2">New Comment</h4>
         <div>
         <UserBadge name={name}/>
-        <MarkdownEditor setValue={(value)=>comment.current=value} value="" />
+        <MarkdownEditor setValue={(value)=>comment.current=value} value="" clear={clear} />
             <Button onClick={async()=>{
                 await createComment(threadId,comment.current,name);
-                comment.current="";
-                router.refresh();
-                
+                setClear(true);            
             }} className="mt-3">Add Comment</Button>
         </div>
     </div>)
