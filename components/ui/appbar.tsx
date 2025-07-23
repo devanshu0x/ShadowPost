@@ -26,7 +26,7 @@ export default function Appbar() {
           {/* Logo */}
           <div className="flex items-center">
             <h1
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/dashboard")}
               className="text-2xl font-bold hover:cursor-pointer"
             >
               <span className="text-white">Shadow</span>

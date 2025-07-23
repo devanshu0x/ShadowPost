@@ -21,7 +21,13 @@ export default function () {
       return;
     }
 
-    await createThread(title, md, isPublic);
+    const thread=await createThread(title, md, isPublic);
+    if(thread.threadId){
+      router.push(`/thread/${thread.threadId}`)
+    }
+    else{
+      router.push("/dashboard");
+    }
   };
 
   return (
@@ -48,7 +54,6 @@ export default function () {
         <Button
           onClick={async () => {
             await handlePublish();
-            router.push("/dashboard");
           }}
           className="mt-4"
         >
