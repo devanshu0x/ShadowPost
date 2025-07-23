@@ -13,7 +13,7 @@ interface Props{
 }
 
 export function AddComment({threadId}:Props){
-    const router=useRouter();
+    const [loading,setLoading]=useState<boolean>(false);
     const [clear,setClear]=useState<boolean>(false);
     const name= Cookie.get("anonymous_name") || "Anon";
     const comment= useRef<string>("");
@@ -28,9 +28,15 @@ export function AddComment({threadId}:Props){
         <UserBadge name={name}/>
         <MarkdownEditor setValue={(value)=>comment.current=value} value="" clear={clear} />
             <Button onClick={async()=>{
-                await createComment(threadId,comment.current,name);
-                setClear(true);            
-            }} className="mt-3">Add Comment</Button>
+                setLoading(true);
+                try{
+                    await createComment(threadId,comment.current,name);
+                    setClear(true); 
+                }
+                finally{
+                    setLoading(false);
+                }           
+            }} className="mt-3" disabled={loading}>{loading ? "Adding..." : "Add Comment"}</Button>
         </div>
     </div>)
 }
