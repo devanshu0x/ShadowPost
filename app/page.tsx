@@ -1,24 +1,41 @@
-import { Background } from "@/components/ui/background";
+import { Background } from "@/components/ui/background"
 import Hero from "@/components/ui/hero";
 
 export default function Page() {
   return (
-    <div>
+    <div className="relative">
       <Background />
-      <div className="mt-20 md:mt-25">
+
+      {/* Hero Section */}
+      <div className="mt-24 md:mt-32">
         <Hero />
       </div>
-      <div id="how-it-works" className="my-16 px-8">
-        <div className="text-center text-xl font-bold">How it Works?</div>
-        <div className="text-justify max-w-2xl mx-auto mt-4 text-gray-400 bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm px-12 py-8 rounded-xl">
-              <p>
-                ShadowPost revolutionizes feedback collection by removing barriers between creators and their audience. 
-                You sign up once, create posts about anything you want feedback on, and share a simple link.
-                Anyone with your link can comment immediately without creating accounts, signing up, or providing personal information. 
-                This creates a frictionless experience that encourages honest, anonymous feedback.
-              </p>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="my-24 px-6 sm:px-8">
+        <h2 className="text-center text-2xl sm:text-3xl font-bold text-white mb-6 text-balance">
+          How it Works?
+        </h2>
+
+        <div className="max-w-2xl mx-auto text-gray-400 bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm px-6 sm:px-12 py-8 rounded-2xl leading-relaxed text-justify animate-fadeIn">
+          <p>
+            <span className="block mb-4">
+              ShadowPost revolutionizes feedback collection by removing
+              barriers between creators and their audience.
+            </span>
+            <span className="block mb-4">
+              You sign up once, create posts about anything you want feedback
+              on, and share a simple link. Anyone with your link can comment
+              immediately without creating accounts, signing up, or providing
+              personal information.
+            </span>
+            <span className="block">
+              This creates a frictionless experience that encourages honest,
+              anonymous feedback.
+            </span>
+          </p>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

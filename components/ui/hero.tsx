@@ -21,7 +21,7 @@ export default function Hero() {
         </Badge>
 
         {/* Main heading */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fadeIn">
           Share Your
           <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent block">
             Shadow Post
@@ -29,7 +29,7 @@ export default function Hero() {
         </h1>
 
         {/* sub-herading */}
-        <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fadeIn">
           Create posts, share links, and let the world comment anonymously. No
           barriers, no sign-ups for commenters-just pure, unfiltered feedback.
         </p>
@@ -38,7 +38,7 @@ export default function Hero() {
         
         {/* features*/}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50 ">
+          <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50 animate-fadeIn">
             <div className="w-12 h-12 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
@@ -51,7 +51,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50">
+          <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50 animate-fadeIn">
             <div className="w-12 h-12 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <Users className="w-6 h-6 text-white" />
             </div>
@@ -64,7 +64,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50">
+          <div className="group p-6 rounded-xl bg-gray-900/30 border border-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-900/50 hover:border-gray-700/50 animate-fadeIn">
             <div className="w-12 h-12 mx-auto bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <Share2 className="w-6 h-6 text-white" />
             </div>

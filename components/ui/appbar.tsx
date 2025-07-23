@@ -88,11 +88,6 @@ export default function Appbar() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-56 bg-gray-900 border-gray-800">
-                    <DropdownMenuItem className="text-gray-300 hover:text-white hover:bg-gray-800">
-                      <User className="w-4 h-4 mr-2" />
-                      Profile
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator className="bg-gray-800" />
                     <DropdownMenuItem
                       onClick={()=>signOut()}
                       className="text-red-400 hover:text-red-300 hover:bg-gray-800"
@@ -166,13 +161,6 @@ export default function Appbar() {
                   >
                     <FileText className="w-4 h-4 mr-2" />
                     My Posts
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-start text-gray-300 hover:text-white hover:bg-gray-800/50"
-                  >
-                    <User className="w-4 h-4 mr-2" />
-                    Profile
                   </Button>
                   <div className="border-t border-gray-800 pt-2">
                     <Button
