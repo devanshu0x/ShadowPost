@@ -15,6 +15,7 @@ export default async function EditThreadContent({ threadId }: Props) {
       id: true,
       body: true,
       title: true,
+      isPublic:true
     },
   });
 

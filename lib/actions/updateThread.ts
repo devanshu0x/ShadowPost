@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
 import { prisma } from "../prisma";
 
-export async function updateThread(title:string, body:string,threadId:string,) {
+export async function updateThread(title:string, body:string,isPublic:boolean,threadId:string,) {
     const session=await getServerSession(authOptions);
     const userId= session?.user?.id as string;
     if(!userId){
@@ -35,6 +35,7 @@ export async function updateThread(title:string, body:string,threadId:string,) {
             data:{
                 title:title,
                 body:body,
+                isPublic:isPublic,
                 editCount:{increment:1}
             }
         })

@@ -7,35 +7,51 @@ import { Input } from "./input";
 import { Button } from "./button";
 import { updateThread } from "@/lib/actions/updateThread";
 import { useRouter } from "next/navigation";
+import { Switch } from "./switch";
 
-interface Props{
-    threadData:{
-        id:string;
-        body:string;
-        title:string;
-    }
+interface Props {
+  threadData: {
+    id: string;
+    body: string;
+    title: string;
+    isPublic:boolean;
+  };
 }
 
-export function EditThread({threadData}:Props){
-    const markdown = useRef<string>(threadData.body);
-    const [title,setTitle]=useState<string>(threadData.title);
-    const router=useRouter();
-    return(
-        <div>
-            <Label className="sm:text-lg mb-2">Title</Label>
-        <Input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter title of thread here"
-        />
-        <Label className="sm:text-lg mt-6 mb-2">Body</Label>
-        <MarkdownEditor
-          value={markdown.current}
-          setValue={(value: string) => (markdown.current = value)}
-        />
-        <Button onClick={async()=>{await updateThread(title,markdown.current,threadData.id)
-            router.push("/dashboard");
-        }} className="mt-6">Update</Button>
+export function EditThread({ threadData }: Props) {
+  const markdown = useRef<string>(threadData.body);
+  const [title, setTitle] = useState<string>(threadData.title);
+  const [isPublic,setIsPublic]=useState<boolean>(threadData.isPublic);
+  const router = useRouter();
+  return (
+    <div>
+        <div className="my-4 sm:my-6 md:my-8 text-right">
+            <Button onClick={()=>router.push(`/thread/${threadData.id}`)} >View Thread</Button>
         </div>
-    )
+      <Label className="sm:text-lg mb-2">Title</Label>
+      <Input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Enter title of thread here"
+      />
+      <Label className="sm:text-lg mt-6 mb-2">Body</Label>
+      <MarkdownEditor
+        value={markdown.current}
+        setValue={(value: string) => (markdown.current = value)}
+      />
+      <div className="mt-6 flex space-x-4">
+                <Switch checked={isPublic} onClick={()=>setIsPublic((s)=>!s)} />
+                <Label>Make it Public</Label>
+              </div>
+      <Button
+        onClick={async () => {
+          await updateThread(title, markdown.current,isPublic, threadData.id);
+          router.push("/dashboard");
+        }}
+        className="mt-6"
+      >
+        Update
+      </Button>
+    </div>
+  );
 }

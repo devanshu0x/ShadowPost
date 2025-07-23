@@ -5,6 +5,7 @@ import { MarkdownPreview } from "@/components/ui/crepeEditorPreview";
 import { prisma } from "@/lib/prisma";
 import { format } from "date-fns";
 import { notFound } from "next/navigation";
+import { ShareButton } from "./shareButton";
 
 export default async function ThreadPageContent({ threadId }: { threadId: string }) {
   const thread = await prisma.thread.findUnique({
@@ -30,7 +31,10 @@ export default async function ThreadPageContent({ threadId }: { threadId: string
   return (
     <>
       <div className="font-bold text-center text-lg sm:text-xl">{thread.title}</div>
-      <div className="mt-8 text-sm text-foreground/80 text-right">{date}</div>
+      <div className="mt-8 text-sm text-foreground/80 flex justify-between items-center">
+      <ShareButton/>
+      {date}
+      </div>
       <div className="my-12">
         <MarkdownPreview value={thread.body} />
       </div>
