@@ -6,7 +6,7 @@ import { UserBadge } from "./userBadge";
 import { Button } from "./button";
 import { createComment } from "@/lib/actions/createComment";
 import Cookie from "js-cookie"
-import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface Props{
     threadId:string;
@@ -31,6 +31,7 @@ export function AddComment({threadId}:Props){
                 setLoading(true);
                 try{
                     await createComment(threadId,comment.current,name);
+                    toast.success("Comment Added Successfully");
                     setClear(true); 
                 }
                 finally{

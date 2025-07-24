@@ -8,10 +8,12 @@ import { Switch } from "@/components/ui/switch";
 import { createThread } from "@/lib/actions/createThread";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 
 export default function () {
   const router = useRouter();
   const [title, setTitle] = useState<string>("");
+  const [loading, setLoading]=useState<boolean>(false);
   const getMarkDown = useRef<string>("");
   const [isPublic, setIsPublic] = useState<boolean>(false);
   const handlePublish = async () => {
@@ -52,12 +54,20 @@ export default function () {
           <Label>Make it Public</Label>
         </div>
         <Button
+        disabled={loading}
           onClick={async () => {
-            await handlePublish();
+            setLoading(true);
+            try{
+              await handlePublish();
+              toast.success("Thread added successfully");
+            }
+            finally{
+              setLoading(false);
+            }
           }}
           className="mt-4"
         >
-          Publish
+          {loading?"Publishing...":"Publish"}
         </Button>
       </div>
     </div>

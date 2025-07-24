@@ -8,6 +8,7 @@ import { Button } from "./button";
 import { updateThread } from "@/lib/actions/updateThread";
 import { useRouter } from "next/navigation";
 import { Switch } from "./switch";
+import { toast } from "sonner";
 
 interface Props {
   threadData: {
@@ -22,6 +23,7 @@ export function EditThread({ threadData }: Props) {
   const markdown = useRef<string>(threadData.body);
   const [title, setTitle] = useState<string>(threadData.title);
   const [isPublic,setIsPublic]=useState<boolean>(threadData.isPublic);
+  const [loading,setLoading]=useState<boolean>(false);
   const router = useRouter();
   return (
     <div>
@@ -44,13 +46,25 @@ export function EditThread({ threadData }: Props) {
                 <Label>Make it Public</Label>
               </div>
       <Button
+      disabled={loading}
         onClick={async () => {
-          await updateThread(title, markdown.current,isPublic, threadData.id);
-          router.push("/dashboard");
+          setLoading(true);
+          try{
+            const res=await updateThread(title, markdown.current,isPublic, threadData.id);
+            if(res.success){
+              router.push("/dashboard");
+            }
+            else{
+              toast.error(res.message || "Failed to update thread");
+            }
+          }
+          finally{
+            setLoading(false);
+          }
         }}
         className="mt-6"
       >
-        Update
+        {loading? "Updating...":"Update"}
       </Button>
     </div>
   );
