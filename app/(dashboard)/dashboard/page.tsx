@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import PublicPostsContent from "@/components/ui/publicPostContent";
 import PublicPostsSkeleton from "@/components/ui/publicPostSkeleton";
 import { Suspense } from "react";
